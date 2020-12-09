@@ -27,6 +27,7 @@ import org.ccsds.moims.mo.mal.structures.FloatList;
 import org.ccsds.moims.mo.platform.autonomousadcs.structures.Quaternion;
 import org.ccsds.moims.mo.platform.autonomousadcs.structures.WheelsSpeed;
 import org.ccsds.moims.mo.platform.structures.VectorF3D;
+import org.ccsds.moims.mo.platform.autonomousadcs.structures.AttitudeTelemetry;
 
 /**
  *
@@ -159,6 +160,11 @@ public class HelperIADCS100
       public final static int RW_SPEED_X = 14 * 4;
       public final static int RW_SPEED_Y = 15 * 4;
       public final static int RW_SPEED_Z = 16 * 4;
+    }
+    public static class POINTING_LOOP_IDX
+    {
+      //Byte offset
+      public final static int POINTING_LOOP_STATE = 0*4;
     }
 
     public static byte[] long2ByteArray(long value)
@@ -477,6 +483,14 @@ public class HelperIADCS100
     velocity.add(FWRefFineADCS.getFloatFromByteArray(status,
         FWRefFineADCS.NADIR_TGTTRACKSTAT_IDX.RW_SPEED_Z));
     return new WheelsSpeed(velocity);
+  }
+  
+  public static byte getPointingLoopStateTarget(byte[] status)
+  {
+    byte stateTarget;
+    stateTarget = FWRefFineADCS.getByteFromByteArray(status,
+        FWRefFineADCS.POINTING_LOOP_IDX.POINTING_LOOP_STATE);
+    return stateTarget;
   }
 
 }
