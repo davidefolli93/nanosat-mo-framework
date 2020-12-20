@@ -1612,6 +1612,14 @@
           </mal:extends>
         </mal:composite>
         <mal:composite
+          comment="Inertial Pointing attitude mode defined by the consumer."
+          name="AttitudeModeInertialPointing" shortFormPart="25">
+          <mal:extends>
+            <mal:type area="Platform" list="false"
+                      name="AttitudeMode" service="AutonomousADCS" />
+          </mal:extends>
+        </mal:composite>
+        <mal:composite
           comment="Vector Pointing attitude mode defined by the consumer."
           name="AttitudeModeVectorPointing" shortFormPart="12">
           <mal:extends>
