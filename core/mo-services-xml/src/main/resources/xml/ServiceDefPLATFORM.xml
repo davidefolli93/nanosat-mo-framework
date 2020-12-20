@@ -1285,12 +1285,6 @@
                 <mal:type area="Platform" list="false"
                           name="AttitudeMode" service="AutonomousADCS" />
               </mal:field>
-              <mal:field canBeNull="true"
-                         comment="Desired attitude determination mode."
-                         name="attitudeDeterminationMode">
-                <mal:type area="Platform" list="false"
-                          name="AttitudeDeterminationMode" service="AutonomousADCS" />
-              </mal:field>
             </mal:submit>
           </mal:messages>
           <mal:errors>
@@ -1517,6 +1511,12 @@
           <mal:extends>
             <mal:type area="MAL" list="false" name="Composite" />
           </mal:extends>
+          <mal:field canBeNull="true"
+            comment="Desired attitude determination mode."
+            name="attitudeDeterminationMode">
+            <mal:type area="Platform" list="false"
+              name="AttitudeDeterminationMode" service="AutonomousADCS" />
+          </mal:field>
         </mal:composite>
         <mal:composite
           comment="B-dot detumbling attitude mode defined by the consumer."
@@ -1749,17 +1749,17 @@
         <mal:enumeration
           comment="Attitude determination mode identifier."
           name="AttitudeDeterminationMode" shortFormPart="13">
-          <mal:item comment="Attitude determination using Magnetic and Sun during pre-alignment"
+          <mal:item comment="Attitude determination using magnetometer and sun sensors"
                     nvalue="1" value="MGT_SUN" />
-          <mal:item comment="Attitude determination using StarTracker with Magnetic and Sun"
+          <mal:item comment="Attitude determination using star tracker with magnetometer and sun sensors"
                     nvalue="2" value="STRTRK_MGT_SUN" />
-          <mal:item comment="Attitude determiantion using StartTracker only"
+          <mal:item comment="Attitude determiantion using star tracker only"
                     nvalue="3" value="STRTRK_ONLY" />
           <mal:item comment="Attitude determination invalid"
                     nvalue="4" value="Invalid" />
         </mal:enumeration>
         <mal:composite
-          comment="Holds Raction wheel parameters" name="ReactionWheelParameters"
+          comment="Holds raction wheel parameters" name="ReactionWheelParameters"
           shortFormPart="14">
           <mal:field canBeNull="false"
                      comment="Control mode of the Reaction wheels. 0 = Target value is a current value [A]; 1 = Target value is a speed value [rad/sec]; 2 = Target alue is a torgh [Nm]" name="controlMode">
