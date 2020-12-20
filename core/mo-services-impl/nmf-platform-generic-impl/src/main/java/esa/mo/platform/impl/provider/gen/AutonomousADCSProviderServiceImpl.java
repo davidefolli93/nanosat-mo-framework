@@ -270,7 +270,7 @@ public class AutonomousADCSProviderServiceImpl extends AutonomousADCSInheritance
   }
 
   @Override
-  public synchronized void setDesiredAttitude(final Duration duration, AttitudeMode desiredAttitude,
+  public synchronized void setDesiredAttitude(final Duration duration, AttitudeMode desiredAttitude, org.ccsds.moims.mo.platform.autonomousadcs.structures.AttitudeDeterminationMode attitudeDeterminationMode,
       MALInteraction interaction) throws MALInteractionException, MALException
   {
     if (!adapter.isUnitAvailable()) {
@@ -301,7 +301,7 @@ public class AutonomousADCSProviderServiceImpl extends AutonomousADCSInheritance
 
       try {
         // Now we can finally set the desiredAttitude!
-        adapter.setDesiredAttitude(desiredAttitude);
+        adapter.setDesiredAttitude(desiredAttitude, attitudeDeterminationMode);
       } catch (IOException ex) {
         LOGGER.log(Level.SEVERE, "Error when setting desired attitude.", ex);
         // Operation not supported by the implementation...

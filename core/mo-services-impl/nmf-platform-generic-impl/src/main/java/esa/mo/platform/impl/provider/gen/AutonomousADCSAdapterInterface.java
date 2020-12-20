@@ -50,7 +50,7 @@ public interface AutonomousADCSAdapterInterface
    * @throws UnsupportedOperationException if the implementation does not support the requested ADCS
    * mode
    */
-  void setDesiredAttitude(AttitudeMode attitude) throws IOException, UnsupportedOperationException;
+  void setDesiredAttitude(AttitudeMode attitude, org.ccsds.moims.mo.platform.autonomousadcs.structures.AttitudeDeterminationMode attitudeDeterminationMode) throws IOException, UnsupportedOperationException;
 
   /**
    * The unset operation shall reset the attitude mode.
